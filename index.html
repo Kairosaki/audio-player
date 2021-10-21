@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://kit.fontawesome.com/f9828f84e0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="shortcut icon" href="#" />
+    <title>HTML5 Audio player</title>
+  </head>
+
+  <body onload="playMusic()">
+    <section class="container">
+      <header>
+        <h1>Audio player with playlist</h1>
+      </header>
+      <main id="audio-main">
+        <!-- audio will be created with javascript -->
+
+        <!-- music playlist -->
+        <div class="audio-playlist">
+          <ul id="playlist">
+            <li id="currentSong">
+              <a href="./musics/symphony.mp3" onclick="playThisSong(0)">Symphony</a>
+            </li>
+          </ul>
+
+          <!-- add a music -->
+          <div class="add-music">
+            <label for="audio-file">
+              <i class="fa fa-plus"></i>
+            </label>
+            <input type="file" id="audio-file" accept="audio/mpeg, audio/ogg" onchange="addMusic(0)" />
+          </div>
+
+          <!-- stop lecture -->
+          <div class="stop-music">
+            <i class="fa fa-stop" onclick="stopMusic()"></i>
+          </div>
+        </div>
+
+        <!-- controls -->
+        <div class="player">
+          <i class="fa fa-repeat" onclick="restartMusic()"></i>
+          <i class="fa fa-fast-backward" onclick="previousSong()"></i>
+          <i class="fa fa-pause" id="audio-pause" onclick="pauseMusic()"></i>
+          <i class="fa fa-play" id="audio-play" onclick="resumeMusic()"></i>
+          <i class="fa fa-fast-forward" onclick="nextSong()"></i>
+          <i class="fa fa-random" onclick="shufflePlaylist()"></i>
+        </div>
+      </main>
+
+      <footer>
+        <div class="title" id="audio-title">Symphony</div>
+
+        <div class="time-tracker">
+          <div class="timer">
+            <!-- progression bar -->
+            <div class="bar-container">
+              <progress id="progress-bar" value="0" max="100"> </progress>
+            </div>
+          </div>
+          <!-- lecture time -->
+          <div class="time" id="audio-time">00:00</div>
+        </div>
+        <div class="container-volume">
+          <i class="fa fa-volume-down" onclick="muteVolume()"></i>
+          <div id="volume">
+            <div class="slidecontainer">
+              <input type="range" min="0" max="100" value="0" class="slider" id="audio-slider" />
+            </div>
+          </div>
+          <i class="fa fa-volume-up" onclick="maxVolume()"></i>
+        </div>
+
+        <!-- me -->
+        <div class="audio-creator">Created by Anas Kaaouachi</div>
+      </footer>
+    </section>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
